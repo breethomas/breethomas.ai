@@ -1,7 +1,7 @@
 ---
-title: "Vangst"
-description: "Built product organization from scratch, led through Series B. Platform served 1,200+ businesses."
-role: "Chief Product Officer"
+title: "Scaling Product Through Series B"
+description: "No product function. Stalled releases. Burn too high. Built a 12-person org, reset strategy with the board, shipped weekly instead of monthly."
+role: "Vangst · Chief Product Officer"
 year: "2020-2022"
 metrics: ["$19M Series B", "12-Person Team", "1,200+ Businesses"]
 order: 3

@@ -35,31 +35,7 @@ const { title, description = "Bree Thomas - Former CPO who ships AI. Product lea
 
     <title>{title}</title>
   </head>
-  <body>
-    <nav class="fixed top-0 w-full bg-bg-primary/80 backdrop-blur-sm z-50 border-b border-bg-elevated">
-      <div class="container-narrow flex justify-between items-center py-4">
-        <a href="/" class="text-text-primary font-semibold text-lg hover:text-text-primary">Bree Thomas</a>
-        <div class="flex gap-8 text-sm">
-          <a href="/#work" class="text-text-secondary hover:text-text-primary transition-colors">Work</a>
-          <a href="/about" class="text-text-secondary hover:text-text-primary transition-colors">About</a>
-          <a href="/contact" class="text-text-secondary hover:text-text-primary transition-colors">Contact</a>
-        </div>
-      </div>
-    </nav>
-
-    <main class="pt-20">
-      <slot />
-    </main>
-
-    <footer class="border-t border-bg-elevated py-12 mt-section">
-      <div class="container-narrow flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-text-muted text-sm">&copy; {new Date().getFullYear()} Bree Thomas</p>
-        <div class="flex gap-6 text-sm">
-          <a href="mailto:breethomas33@gmail.com" class="text-text-secondary hover:text-text-primary">Email</a>
-          <a href="https://linkedin.com/in/breethomas" target="_blank" rel="noopener" class="text-text-secondary hover:text-text-primary">LinkedIn</a>
-          <a href="https://github.com/breethomas" target="_blank" rel="noopener" class="text-text-secondary hover:text-text-primary">GitHub</a>
-        </div>
-      </div>
-    </footer>
+  <body class="min-h-screen w-full">
+    <slot />
   </body>
 </html>

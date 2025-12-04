@@ -8,85 +8,73 @@
   }
 
   body {
-    @apply bg-bg-primary text-text-primary font-sans;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply bg-bg-primary text-text-primary font-sans antialiased;
+  }
+
+  /* Giant serif headlines */
+  .headline-giant {
+    @apply font-serif italic text-text-primary tracking-tight;
+    font-size: clamp(6rem, 12vw, 14rem);
+    line-height: 0.85;
+    font-weight: 400;
   }
 
   /* Typography defaults */
   h1 {
-    @apply text-hero;
+    @apply text-3xl lg:text-4xl font-bold text-text-primary;
   }
 
   h2 {
-    @apply text-section;
+    @apply text-2xl font-bold text-text-primary;
   }
 
   h3 {
-    @apply text-card-title;
+    @apply text-xl font-bold text-text-primary;
   }
 
   p {
     @apply text-lg leading-relaxed text-text-secondary;
   }
-
-  a {
-    @apply text-accent-purple hover:text-accent-purple-hover transition-colors;
-  }
 }
 
 @layer components {
-  /* Section container */
-  .section {
-    @apply py-section;
+  /* Container */
+  .container-main {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
   }
 
-  /* Container with max width */
   .container-narrow {
-    @apply max-w-5xl mx-auto px-6;
+    @apply max-w-4xl;
   }
 
-  /* Case study card */
-  .card {
-    @apply bg-bg-surface rounded-lg border border-bg-elevated p-6;
-    @apply hover:border-accent-purple/50 transition-all duration-200;
-    @apply hover:-translate-y-1;
+  /* Section spacing */
+  .section {
+    @apply py-24 lg:py-32;
   }
 
-  /* Metrics strip */
-  .metrics-strip {
-    @apply flex flex-wrap gap-8 text-sm text-text-secondary;
-  }
-
-  .metric {
-    @apply flex flex-col;
-  }
-
-  .metric-value {
-    @apply text-2xl font-semibold text-text-primary;
-  }
-
-  .metric-label {
-    @apply text-text-muted text-sm;
-  }
-
-  /* Timeline */
-  .timeline {
-    @apply relative pl-8 border-l border-bg-elevated;
-  }
-
-  .timeline-item {
-    @apply relative pb-8 last:pb-0;
-  }
-
-  .timeline-item::before {
-    content: '';
-    @apply absolute -left-[33px] top-2 w-2 h-2 rounded-full bg-accent-purple;
+  /* Metrics with yellow highlight */
+  .metric-highlight {
+    @apply bg-accent-yellow text-text-primary px-2 py-1 font-medium;
   }
 
   /* Button styles */
   .btn-primary {
-    @apply inline-flex items-center px-6 py-3 bg-accent-purple text-white rounded-lg;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-accent-purple text-white rounded-lg;
     @apply hover:bg-accent-purple-hover transition-colors font-medium;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg;
+    @apply text-text-primary font-medium hover:border-accent-purple hover:text-accent-purple transition-colors;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    @apply py-8 border-b border-gray-200 last:border-b-0;
   }
 }

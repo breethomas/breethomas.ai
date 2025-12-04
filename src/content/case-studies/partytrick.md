@@ -1,7 +1,7 @@
 ---
-title: "Partytrick"
-description: "Platform turnaround: shipped full SaaS in <40 days after 2 years of stalled development."
-role: "Interim Product Lead"
+title: "The 40-Day Turnaround"
+description: "Two years of spinning. Nothing shipped. I came in, cut 70% of the backlog, and launched the full platform in 40 days."
+role: "Partytrick · Head of Product"
 year: "2025"
 metrics: ["<40 Days to Ship", "60% Burn Reduction", "Full Platform Launch"]
 order: 2

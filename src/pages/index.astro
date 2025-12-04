@@ -1,109 +1,496 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 
-const caseStudies = await getCollection('case-studies');
+// Case studies data with corrected titles and roles
+const caseStudies = [
+  {
+    company: 'Balance',
+    role: 'Co-Founder',
+    years: '2022 - Present',
+    logo: '/images/balance-logo.png',
+    problem: 'Banks assume variable means unpredictable. It doesn\'t. These workers know exactly what a Friday night shift earns.',
+    solution: 'Balance turns that knowledge into forecasts they can act on. Built conversational AI with 7-tool agentic architecture and LLM-as-judge evaluation framework.',
+    metrics: ['60% Retention', '81% Tipped Workers', '7-Tool Agentic System']
+  },
+  {
+    company: 'Partytrick',
+    role: 'Head of Product',
+    years: '2025',
+    logo: '/images/partytrick-logo.jpg',
+    problem: 'Two years of spinning. Nothing shipped. Team had lost confidence and the product had no clear path to market.',
+    solution: 'Cut 70% of the backlog. Aligned design and engineering around market-fit KPIs. Shipped the full platform in 40 days.',
+    metrics: ['<40 Day Ship', '60% Burn Reduction', 'Market Launch']
+  },
+  {
+    company: 'Vangst',
+    role: 'Chief Product Officer',
+    years: '2020 - 2022',
+    logo: '/images/vangst-logo.png',
+    problem: 'No product function. Stalled releases. Burn too high. Product and engineering disconnected from business strategy.',
+    solution: 'Built 12-person product/engineering organization. Reset strategy with board. Shipping cadence: stalled monthly to continuous weekly.',
+    metrics: ['$19M Series B', '40% Burn Reduction', '12-Person Team']
+  },
+  {
+    company: 'Muve Health',
+    role: 'VP of Product',
+    years: '2017 - 2019',
+    logo: '/images/muve-logo.jpg',
+    problem: 'EMR platform was failing with providers, feature velocity was slow, and the product team lacked clear direction.',
+    solution: 'Delivered complete platform turnaround in 90 days with 100% provider adoption and 50% faster feature velocity.',
+    metrics: ['90-Day Turnaround', '100% Provider Adoption', '50% Faster Velocity']
+  }
+];
+
+// Career timeline with corrected roles
+const careerHistory = [
+  {
+    period: '2022 - Present',
+    company: 'Balance',
+    role: 'Co-Founder',
+    achievement: 'Built AI cash-flow forecasting serving 81% tipped workers with 60% retention. Designed LLM-as-judge eval system for production AI.',
+    highlight: true
+  },
+  {
+    period: '2025',
+    company: 'Partytrick',
+    role: 'Head of Product',
+    achievement: 'Shipped complete SaaS platform in <40 days after 2 years stalled. Cut burn 60% while launching to market.'
+  },
+  {
+    period: '2020 - 2022',
+    company: 'Vangst',
+    role: 'Chief Product Officer',
+    achievement: 'Built 12-person product/engineering team. Reset strategy with board, reduced burn 40%, positioned for $19M Series B.'
+  },
+  {
+    period: '2019 - 2020',
+    company: 'Highwing',
+    role: 'VP Product',
+    achievement: 'B2B SaaS for commercial insurance data exchange. API product strategy.'
+  },
+  {
+    period: '2017 - 2019',
+    company: 'Muve Health',
+    role: 'VP of Product',
+    achievement: 'Delivered EMR platform turnaround in 90 days with 100% provider adoption. Increased feature velocity 50%.'
+  },
+  {
+    period: '2013 - 2023',
+    company: 'Turing School',
+    role: 'Board Member',
+    achievement: '10-year journey. Student to Instructor to Board Member. Modernized curriculum resulting in 25% improvement in graduate preparedness scores.'
+  },
+  {
+    period: '2011 - 2013',
+    company: 'Qdoba',
+    role: 'Director, Digital Product & Marketing',
+    achievement: 'Digital redesign grew leads 32%. Revenue $169M to $241M.'
+  }
+];
+
+// Open source projects
+const openSource = [
+  {
+    name: 'PM Thought Partner',
+    description: 'Claude Code plugin. Strategic sparring partner that challenges assumptions and pushes toward prototypes over documentation. Integrates Linear and GitHub via MCP.',
+    stars: 8,
+    forks: 2,
+    language: 'Shell',
+    langColor: '#89e051',
+    url: 'https://github.com/breethomas/pm-thought-partner',
+    image: '/images/women-boxing.webp'
+  },
+  {
+    name: 'PM Coding Guardrails',
+    description: 'Quality standards for PMs who code with AI. Ship responsibly. Match team patterns. Don\'t leave messes for engineers to clean up.',
+    stars: 4,
+    forks: 1,
+    language: 'Markdown',
+    langColor: '#083fa1',
+    url: 'https://github.com/breethomas/pm-coding-guardrails',
+    image: '/images/swim-code-guardrails.png'
+  }
+];
+
+// Metrics for hero
+const metrics = [
+  { value: '60%', label: 'Retention' },
+  { value: '<40', label: 'Day Ship' },
+  { value: '$19M', label: 'Series B' },
+  { value: '90', label: 'Day Turnaround' }
+];
 ---
 
-<BaseLayout title="Bree Thomas | Former CPO Who Ships AI">
-  <!-- Hero Section - Full width, no card -->
-  <section class="section">
-    <div class="container-narrow">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h1 class="text-hero mb-6">
-            Former CPO<br />
-            <span class="text-accent-purple">Who Ships AI</span>
-          </h1>
-          <p class="text-xl text-text-secondary mb-8 max-w-lg">
-            I've led product organizations through Series B growth, delivered 90-day platform turnarounds,
-            and now build production AI systems hands-on.
-          </p>
-          <a href="#work" class="btn-primary">See my work</a>
+<BaseLayout title="Bree Thomas | PM">
+  <!-- Hero Section -->
+  <section class="relative min-h-screen w-full bg-white overflow-hidden">
+    <div class="container-main pt-8 pb-16 lg:pt-12 lg:pb-24">
+      <!-- Navigation -->
+      <nav class="flex items-center justify-between mb-16 lg:mb-24">
+        <img src="/images/bree-balance-logo.png" alt="Bree Thomas" class="h-12 lg:h-14" />
+        <div class="flex items-center gap-8 text-sm">
+          <a href="#work" class="text-text-primary hover:text-accent-purple">Work</a>
+          <a href="#about" class="text-text-primary hover:text-accent-purple">About</a>
+          <a href="#contact" class="text-accent-purple hover:text-accent-purple-hover">Get in Touch</a>
         </div>
-        <div class="flex justify-center md:justify-end">
-          <img
-            src="/images/headshot.jpg"
-            alt="Bree Thomas"
-            class="w-80 h-auto rounded-lg"
-          />
+      </nav>
+
+      <!-- Giant headline -->
+      <div class="mb-16 lg:mb-24">
+        <h1 class="headline-giant">Build.</h1>
+      </div>
+
+      <!-- Main content grid -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <!-- Text content -->
+        <div class="space-y-6 max-w-lg">
+          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary leading-tight">
+            Products. Teams. AI.
+          </h2>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            Former CPO who ships fast. Now building AI.
+          </p>
+          <a href="#work" class="btn-primary">
+            See My Work
+          </a>
+        </div>
+
+        <!-- Image -->
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="relative">
+            <img
+              src="/images/Screenshot_2025-11-20_at_5.36.13_PM.png"
+              alt="Bree Thomas"
+              class="w-64 lg:w-80 h-auto rounded-lg object-cover shadow-xl"
+            />
+            <!-- Years badge -->
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 border border-gray-100">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-accent-purple flex items-center justify-center">
+                  <span class="text-white font-bold text-sm">14+</span>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-text-primary">Years in Product</p>
+                  <p class="text-xs text-text-secondary">CPO & VP Experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Metrics Strip - inline, not cards -->
-      <div class="metrics-strip mt-16 pt-8 border-t border-bg-elevated">
-        <div class="metric">
-          <span class="metric-value">60%</span>
-          <span class="metric-label">User Retention</span>
+      <!-- Metrics strip -->
+      <div class="mt-24 pt-12 border-t border-gray-200">
+        <div class="flex flex-wrap justify-center gap-x-16 gap-y-8">
+          {metrics.map((metric) => (
+            <div class="text-center">
+              <span class="block text-4xl lg:text-5xl font-bold text-text-primary">{metric.value}</span>
+              <span class="text-sm text-text-secondary uppercase tracking-wide mt-1 block">{metric.label}</span>
+            </div>
+          ))}
         </div>
-        <div class="metric">
-          <span class="metric-value">&lt;40 days</span>
-          <span class="metric-label">Platform Ship</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">$19M</span>
-          <span class="metric-label">Series B Raised</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">90 days</span>
-          <span class="metric-label">EMR Turnaround</span>
-        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="flex justify-center mt-16">
+        <a href="#work" class="flex flex-col items-center gap-2 text-text-secondary hover:text-accent-purple">
+          <span class="text-sm">Scroll to explore</span>
+          <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Case Studies Section - Cards appropriate here -->
-  <section id="work" class="section bg-bg-surface">
-    <div class="container-narrow">
-      <h2 class="text-section mb-4">Signature Work</h2>
-      <p class="text-text-secondary mb-12 max-w-2xl">
-        Product leadership across AI, fintech, healthcare, and SaaS.
-        Each project demonstrates strategic thinking and measurable outcomes.
-      </p>
+  <!-- Selected Work Section -->
+  <section id="work" class="w-full bg-bg-surface section">
+    <div class="container-main">
+      <!-- Giant headline -->
+      <div class="mb-24 lg:mb-32">
+        <h2 class="headline-giant">Ship.</h2>
+      </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        {caseStudies.map((study) => (
-          <a href={`/work/${study.slug}`} class="card group block">
-            {study.data.thumbnail && (
-              <img
-                src={study.data.thumbnail}
-                alt={study.data.title}
-                class="w-full h-48 object-cover rounded-md mb-4"
-              />
-            )}
-            <h3 class="text-card-title text-text-primary group-hover:text-accent-purple transition-colors">
-              {study.data.title}
-            </h3>
-            <p class="text-text-muted text-sm mt-1 mb-3">{study.data.role}</p>
-            <p class="text-text-secondary text-sm mb-4">{study.data.description}</p>
-            <div class="flex gap-4 text-sm">
-              {study.data.metrics?.slice(0, 2).map((metric: string) => (
-                <span class="text-accent-purple font-medium">{metric}</span>
-              ))}
+      <!-- Case studies -->
+      <div class="container-narrow space-y-16 lg:space-y-20">
+        {caseStudies.map((project) => (
+          <div class="flex gap-6 lg:gap-8">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+              <img src={project.logo} alt={`${project.company} logo`} class="w-16 h-16 lg:w-20 lg:h-20 rounded-lg object-cover" />
             </div>
-          </a>
+
+            <!-- Content -->
+            <div class="flex-1 space-y-4 pt-1">
+              <!-- Company / Role / Years -->
+              <div class="flex flex-wrap items-center gap-2 text-lg">
+                <span class="font-bold text-text-primary">{project.company}</span>
+                <span class="text-text-secondary">·</span>
+                <span class="text-text-secondary">{project.role}</span>
+                <span class="text-text-secondary">·</span>
+                <span class="text-text-secondary">{project.years}</span>
+              </div>
+
+              <!-- Problem -->
+              <p class="text-lg text-text-primary leading-relaxed">{project.problem}</p>
+
+              <!-- Solution -->
+              <p class="text-lg text-text-primary leading-relaxed">{project.solution}</p>
+
+              <!-- Metrics -->
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                {project.metrics.map((metric) => (
+                  <span class="metric-highlight">{metric}</span>
+                ))}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Brief About Teaser -->
-  <section class="section">
-    <div class="container-narrow">
-      <div class="max-w-2xl">
-        <h2 class="text-section mb-6">Product Leadership + Technical Depth</h2>
-        <p class="text-text-secondary mb-6">
-          I bring executive product experience (CPO, VP Product) combined with hands-on AI expertise.
-          That means I can set strategy with the board and then build the LLM evaluation framework myself.
-        </p>
-        <p class="text-text-secondary mb-8">
-          Currently building AI-powered financial forecasting at Balance. Previously led product at Vangst
-          through their $19M Series B.
-        </p>
-        <a href="/about" class="text-accent-purple hover:text-accent-purple-hover font-medium">
-          Read my full story &rarr;
+  <!-- Open Source Section -->
+  <section class="w-full bg-white section">
+    <div class="container-main">
+      <!-- Giant headline -->
+      <div class="mb-24 lg:mb-32">
+        <h2 class="headline-giant">Share.</h2>
+      </div>
+
+      <!-- Projects grid -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-6xl">
+        {openSource.map((project) => (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block bg-bg-surface rounded-lg overflow-hidden border border-gray-200 hover:border-accent-purple hover:shadow-lg transition-all"
+          >
+            {project.image && (
+              <div class="relative aspect-[16/9] overflow-hidden">
+                <img src={project.image} alt={project.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            )}
+            <div class="p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-text-primary flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </div>
+                <span class="flex items-center gap-1 text-sm text-text-secondary">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                  </svg>
+                  {project.stars}
+                </span>
+                <span class="flex items-center gap-1 text-sm text-text-secondary">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+                  </svg>
+                  {project.forks}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-purple transition-colors">
+                {project.name}
+              </h3>
+              <p class="text-text-secondary leading-relaxed">{project.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- GitHub CTA -->
+      <div class="mt-12">
+        <a href="https://github.com/breethomas" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          View All Projects
         </a>
       </div>
     </div>
   </section>
+
+  <!-- About Section -->
+  <section id="about" class="w-full bg-bg-surface section">
+    <div class="container-main">
+      <!-- Giant headline -->
+      <div class="mb-16 lg:mb-24">
+        <h2 class="headline-giant">Story.</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
+        <!-- Image column -->
+        <div class="lg:col-span-5">
+          <div class="sticky top-24">
+            <div class="relative">
+              <img src="/images/Screenshot_2025-11-20_at_5.36.13_PM.png" alt="Bree Thomas" class="w-full max-w-md rounded-lg shadow-xl" />
+              <!-- Education card overlay -->
+              <div class="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-lg p-6 border border-gray-100 max-w-xs">
+                <h4 class="text-sm font-semibold text-accent-purple uppercase tracking-wide mb-4">Education</h4>
+                <ul class="space-y-3 text-sm text-text-primary">
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow mt-1.5 flex-shrink-0"></span>
+                    <span>JD, University of Denver</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow mt-1.5 flex-shrink-0"></span>
+                    <span>BFA, University of New Mexico</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow mt-1.5 flex-shrink-0"></span>
+                    <span>Full-Stack Engineering, Turing School</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content column -->
+        <div class="lg:col-span-7">
+          <!-- Career in thirds narrative -->
+          <div class="space-y-6 text-lg text-text-secondary leading-relaxed">
+            <p>My career happened in thirds.</p>
+            <p>
+              First, marketing. DTC brands like Oakley, North Face, and Beats by Dre.
+              Three Super Bowl campaigns with Audi. These weren't just advertising. We had engineering teams
+              building software for these brands.
+            </p>
+            <p>
+              Then I learned to code. Took a detour to Turing School because I wanted to understand how things
+              actually get built. Founded the Denver chapter of Girl Develop It and taught women to code on weekends.
+            </p>
+            <p>
+              Marketing foundation plus shipping production code led to product. I've been doing product since
+              before it became the discipline it is today.
+            </p>
+            <p>
+              I'm the one you call when turnarounds need to happen and shit needs to get done. Startups, Fortune 500s,
+              stalled products, scaling teams. I've done it across verticals.
+            </p>
+            <p>
+              Engineers want to work with me. I speak their language, understand their constraints, make tough calls,
+              and protect their focus. I build products WITH my team, not just for them.
+            </p>
+            <p>
+              I don't rely on assumptions. I study what people actually do. User empathy isn't a phase of the project.
+              It's how I think.
+            </p>
+            <p>
+              My undergrad was art studio. I painted and drew my way through college. Then law school. Passed the
+              Colorado bar. That breadth made me dangerous: creative thinking, critical thinking, logical reasoning.
+            </p>
+            <p>I don't write memos nobody reads. I build. I ship. I iterate.</p>
+          </div>
+
+          <!-- Why AI -->
+          <div class="mt-12 py-8 px-8 bg-white rounded-lg border border-gray-200">
+            <p class="text-2xl lg:text-3xl font-medium text-text-primary leading-snug italic">
+              "For years, the design-eng-product dynamic got predictable. AI made it weird again. I'm here for it."
+            </p>
+          </div>
+
+          <!-- Continued Learning -->
+          <div class="mt-16 pt-12 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-text-primary mb-8">Continued Learning</h3>
+            <div class="space-y-8">
+              <div>
+                <div class="mb-2">
+                  <span class="text-lg font-semibold text-text-primary">Prototype to Production</span>
+                  <span class="text-lg text-text-secondary"> · Aman Khan, 2025</span>
+                </div>
+                <p class="text-base text-text-secondary">Agentic prototypes (RAG, tool calling), evaluation frameworks</p>
+              </div>
+              <div>
+                <div class="mb-2">
+                  <span class="text-lg font-semibold text-text-primary">AI Evals for Engineers & PMs</span>
+                  <span class="text-lg text-text-secondary"> · Parlance Labs, 2025</span>
+                </div>
+                <p class="text-base text-text-secondary">LLM evaluation pipelines, LLM-as-judge, CI/CD integration</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect Section -->
+  <footer id="contact" class="w-full bg-bg-surface section">
+    <div class="container-main">
+      <!-- Giant headline -->
+      <div class="mb-16 lg:mb-24">
+        <h2 class="headline-giant">Connect.</h2>
+      </div>
+
+      <div class="max-w-2xl">
+        <div class="text-xl text-text-secondary mb-12 space-y-1">
+          <p>Building something?</p>
+          <p>Stuck on something?</p>
+          <p>I like those conversations.</p>
+        </div>
+
+        <!-- Primary CTA -->
+        <a href="mailto:breethomas33@gmail.com" class="btn-primary text-lg mb-12 inline-flex">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          breethomas33@gmail.com
+        </a>
+
+        <!-- Social links and resume -->
+        <div class="flex items-center gap-4 mb-8">
+          <a
+            href="https://linkedin.com/in/breethomas"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center w-12 h-12 rounded-lg bg-white border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple transition-colors"
+            aria-label="LinkedIn"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/breethomas"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center w-12 h-12 rounded-lg bg-white border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple transition-colors"
+            aria-label="GitHub"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a
+            href="/resume.pdf"
+            download
+            class="flex items-center justify-center gap-2 h-12 px-4 rounded-lg bg-white border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple transition-colors text-sm font-medium"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Resume
+          </a>
+        </div>
+
+        <!-- Location -->
+        <div class="flex items-center gap-2 text-text-secondary">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+          <span>Denver, CO</span>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="mt-24 pt-8 border-t border-gray-200 text-sm text-text-secondary">
+        <span>&copy; {new Date().getFullYear()} Bree Thomas</span>
+      </div>
+    </div>
+  </footer>
 </BaseLayout>
