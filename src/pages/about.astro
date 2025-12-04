@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Bree Thomas">
+  <section class="section">
+    <div class="container-narrow">
+      <div class="max-w-3xl">
+        <h1 class="text-hero mb-8">About</h1>
+
+        <!-- Professional narrative - prose, not cards -->
+        <div class="space-y-6 text-text-secondary text-lg leading-relaxed">
+          <p>
+            I'm a product leader who ships. Over 14 years, I've built and led product organizations,
+            reset strategy with boards, and delivered platform turnarounds that seemed impossible.
+          </p>
+          <p>
+            My path wasn't traditional: I started with a law degree, discovered I was more interested
+            in building than arguing, and taught myself to code at Turing School. That combination of
+            legal precision, business thinking, and technical depth shapes how I approach product.
+          </p>
+          <p>
+            Now I focus on AI products. Not "AI-curious" but actually building: LLM evaluation frameworks,
+            prompt architecture, agentic workflows with tool calling. At Balance, I designed a 7-tool
+            agentic system with LLM-as-judge evaluation that achieves 60% retention for variable-income workers.
+          </p>
+          <p>
+            I believe the best product leaders combine strategic thinking with technical depth.
+            You can't evaluate AI systems without understanding how they work. You can't lead engineering
+            teams without earning their respect through competence.
+          </p>
+        </div>
+
+        <!-- Photo -->
+        <div class="my-12">
+          <img
+            src="/images/headshot-2.jpg"
+            alt="Bree Thomas"
+            class="w-64 h-auto rounded-lg"
+          />
+        </div>
+
+        <!-- Education - simple list, not cards -->
+        <div class="mt-16">
+          <h2 class="text-2xl font-semibold mb-6">Education</h2>
+          <ul class="space-y-4 text-text-secondary">
+            <li>
+              <span class="text-text-primary font-medium">Juris Doctor</span>
+              <span class="text-text-muted"> &mdash; University of Denver, Sturm College of Law</span>
+            </li>
+            <li>
+              <span class="text-text-primary font-medium">Full-Stack Engineering</span>
+              <span class="text-text-muted"> &mdash; Turing School of Software and Design</span>
+            </li>
+            <li>
+              <span class="text-text-primary font-medium">BFA, Art Studio/Photography</span>
+              <span class="text-text-muted"> &mdash; University of New Mexico</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Recent Training -->
+        <div class="mt-12">
+          <h2 class="text-2xl font-semibold mb-6">Recent AI Training</h2>
+          <ul class="space-y-4 text-text-secondary">
+            <li>
+              <span class="text-text-primary font-medium">Prototype to Production</span>
+              <span class="text-text-muted"> &mdash; Aman Khan, 2025</span>
+              <p class="text-sm mt-1">Agentic prototypes (RAG, tool calling), evaluation frameworks</p>
+            </li>
+            <li>
+              <span class="text-text-primary font-medium">AI Evals for Engineers & PMs</span>
+              <span class="text-text-muted"> &mdash; Parlance Labs, 2025</span>
+              <p class="text-sm mt-1">LLM evaluation pipelines, LLM-as-judge, CI/CD integration</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Board Work -->
+        <div class="mt-12">
+          <h2 class="text-2xl font-semibold mb-6">Board & Advisory</h2>
+          <p class="text-text-secondary">
+            <span class="text-text-primary font-medium">Turing School of Software and Design</span> &mdash;
+            10-year board tenure (2013-2023). Modernized curriculum resulting in 25% improvement in
+            graduate preparedness scores.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Timeline - timeline format, not cards -->
+  <section class="section bg-bg-surface">
+    <div class="container-narrow">
+      <h2 class="text-section mb-12">Career Journey</h2>
+
+      <div class="timeline max-w-2xl">
+        <div class="timeline-item">
+          <div class="text-text-muted text-sm mb-1">2022 &ndash; Present</div>
+          <h3 class="text-text-primary font-semibold">Balance</h3>
+          <p class="text-text-muted text-sm">Product Leader & Founder</p>
+          <p class="text-text-secondary mt-2">
+            AI-powered financial forecasting for variable-income workers. Built 7-tool agentic architecture,
+            LLM-as-judge eval system. 60% retention.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-text-muted text-sm mb-1">2025</div>
+          <h3 class="text-text-primary font-semibold">Partytrick</h3>
+          <p class="text-text-muted text-sm">Interim Product Lead</p>
+          <p class="text-text-secondary mt-2">
+            Platform turnaround: shipped full SaaS in &lt;40 days after 2 years stalled. Cut burn 60%.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-text-muted text-sm mb-1">2020 &ndash; 2022</div>
+          <h3 class="text-text-primary font-semibold">Vangst</h3>
+          <p class="text-text-muted text-sm">Chief Product Officer</p>
+          <p class="text-text-secondary mt-2">
+            Built 12-person product/engineering team. Reset strategy with board, reduced burn 40%,
+            positioned for $19M Series B.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-text-muted text-sm mb-1">2019 &ndash; 2020</div>
+          <h3 class="text-text-primary font-semibold">Highwing</h3>
+          <p class="text-text-muted text-sm">VP Product</p>
+          <p class="text-text-secondary mt-2">
+            B2B SaaS for commercial insurance data exchange. API product strategy.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-text-muted text-sm mb-1">2017 &ndash; 2019</div>
+          <h3 class="text-text-primary font-semibold">Muve Health</h3>
+          <p class="text-text-muted text-sm">VP Product</p>
+          <p class="text-text-secondary mt-2">
+            EMR platform turnaround in 90 days. 100% provider adoption. Feature velocity +50%.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-text-muted text-sm mb-1">2011 &ndash; 2013</div>
+          <h3 class="text-text-primary font-semibold">Qdoba</h3>
+          <p class="text-text-muted text-sm">Director, Digital Product & Marketing</p>
+          <p class="text-text-secondary mt-2">
+            Digital redesign grew leads 32%. Revenue $169M &rarr; $241M.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

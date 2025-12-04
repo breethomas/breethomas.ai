@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('case-studies');
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const { Content } = await study.render();
+---
+
+<BaseLayout title={`${study.data.title} | Bree Thomas`} description={study.data.description}>
+  <article class="section">
+    <div class="container-narrow">
+      <!-- Hero -->
+      <header class="mb-12">
+        <a href="/work" class="text-text-muted text-sm hover:text-accent-purple mb-4 inline-block">
+          &larr; Back to Work
+        </a>
+        <h1 class="text-hero mb-4">{study.data.title}</h1>
+        <p class="text-text-muted text-lg mb-6">{study.data.role} &mdash; {study.data.year}</p>
+
+        <!-- Metrics strip -->
+        {study.data.metrics && (
+          <div class="metrics-strip">
+            {study.data.metrics.map((metric: string) => (
+              <span class="text-accent-purple font-semibold">{metric}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Thumbnail -->
+      {study.data.thumbnail && (
+        <img
+          src={study.data.thumbnail}
+          alt={study.data.title}
+          class="w-full rounded-lg mb-12"
+        />
+      )}
+
+      <!-- Content -->
+      <div class="prose prose-invert prose-lg max-w-none">
+        <Content />
+      </div>
+
+      <!-- Navigation -->
+      <div class="mt-16 pt-8 border-t border-bg-elevated">
+        <a href="/work" class="text-accent-purple hover:text-accent-purple-hover font-medium">
+          &larr; View all case studies
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .prose {
+    @apply text-text-secondary;
+  }
+  .prose h2 {
+    @apply text-text-primary text-2xl font-semibold mt-12 mb-4;
+  }
+  .prose h3 {
+    @apply text-text-primary text-xl font-medium mt-8 mb-3;
+  }
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  .prose ul, .prose ol {
+    @apply mb-4 pl-6;
+  }
+  .prose li {
+    @apply mb-2;
+  }
+  .prose strong {
+    @apply text-text-primary font-semibold;
+  }
+  .prose a {
+    @apply text-accent-purple hover:text-accent-purple-hover;
+  }
+  .prose img {
+    @apply rounded-lg my-8;
+  }
+</style>

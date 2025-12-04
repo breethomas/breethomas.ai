@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('case-studies');
+---
+
+<BaseLayout title="Work | Bree Thomas">
+  <section class="section">
+    <div class="container-narrow">
+      <h1 class="text-hero mb-4">Work</h1>
+      <p class="text-text-secondary text-xl mb-12 max-w-2xl">
+        Product leadership across AI, fintech, healthcare, and SaaS.
+        Each project demonstrates strategic thinking, technical depth, and measurable outcomes.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {caseStudies.map((study) => (
+          <a href={`/work/${study.slug}`} class="card group block">
+            {study.data.thumbnail && (
+              <img
+                src={study.data.thumbnail}
+                alt={study.data.title}
+                class="w-full h-48 object-cover rounded-md mb-4"
+              />
+            )}
+            <h2 class="text-card-title text-text-primary group-hover:text-accent-purple transition-colors">
+              {study.data.title}
+            </h2>
+            <p class="text-text-muted text-sm mt-1 mb-3">{study.data.role}</p>
+            <p class="text-text-secondary text-sm mb-4">{study.data.description}</p>
+            <div class="flex flex-wrap gap-3 text-sm">
+              {study.data.metrics?.map((metric: string) => (
+                <span class="text-accent-purple font-medium">{metric}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

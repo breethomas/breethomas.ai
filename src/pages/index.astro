@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('case-studies');
+---
+
+<BaseLayout title="Bree Thomas | Former CPO Who Ships AI">
+  <!-- Hero Section - Full width, no card -->
+  <section class="section">
+    <div class="container-narrow">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-hero mb-6">
+            Former CPO<br />
+            <span class="text-accent-purple">Who Ships AI</span>
+          </h1>
+          <p class="text-xl text-text-secondary mb-8 max-w-lg">
+            I've led product organizations through Series B growth, delivered 90-day platform turnarounds,
+            and now build production AI systems hands-on.
+          </p>
+          <a href="#work" class="btn-primary">See my work</a>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src="/images/headshot.jpg"
+            alt="Bree Thomas"
+            class="w-80 h-auto rounded-lg"
+          />
+        </div>
+      </div>
+
+      <!-- Metrics Strip - inline, not cards -->
+      <div class="metrics-strip mt-16 pt-8 border-t border-bg-elevated">
+        <div class="metric">
+          <span class="metric-value">60%</span>
+          <span class="metric-label">User Retention</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">&lt;40 days</span>
+          <span class="metric-label">Platform Ship</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">$19M</span>
+          <span class="metric-label">Series B Raised</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">90 days</span>
+          <span class="metric-label">EMR Turnaround</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section - Cards appropriate here -->
+  <section id="work" class="section bg-bg-surface">
+    <div class="container-narrow">
+      <h2 class="text-section mb-4">Signature Work</h2>
+      <p class="text-text-secondary mb-12 max-w-2xl">
+        Product leadership across AI, fintech, healthcare, and SaaS.
+        Each project demonstrates strategic thinking and measurable outcomes.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {caseStudies.map((study) => (
+          <a href={`/work/${study.slug}`} class="card group block">
+            {study.data.thumbnail && (
+              <img
+                src={study.data.thumbnail}
+                alt={study.data.title}
+                class="w-full h-48 object-cover rounded-md mb-4"
+              />
+            )}
+            <h3 class="text-card-title text-text-primary group-hover:text-accent-purple transition-colors">
+              {study.data.title}
+            </h3>
+            <p class="text-text-muted text-sm mt-1 mb-3">{study.data.role}</p>
+            <p class="text-text-secondary text-sm mb-4">{study.data.description}</p>
+            <div class="flex gap-4 text-sm">
+              {study.data.metrics?.slice(0, 2).map((metric: string) => (
+                <span class="text-accent-purple font-medium">{metric}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Brief About Teaser -->
+  <section class="section">
+    <div class="container-narrow">
+      <div class="max-w-2xl">
+        <h2 class="text-section mb-6">Product Leadership + Technical Depth</h2>
+        <p class="text-text-secondary mb-6">
+          I bring executive product experience (CPO, VP Product) combined with hands-on AI expertise.
+          That means I can set strategy with the board and then build the LLM evaluation framework myself.
+        </p>
+        <p class="text-text-secondary mb-8">
+          Currently building AI-powered financial forecasting at Balance. Previously led product at Vangst
+          through their $19M Series B.
+        </p>
+        <a href="/about" class="text-accent-purple hover:text-accent-purple-hover font-medium">
+          Read my full story &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

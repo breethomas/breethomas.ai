@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography defaults */
+  h1 {
+    @apply text-hero;
+  }
+
+  h2 {
+    @apply text-section;
+  }
+
+  h3 {
+    @apply text-card-title;
+  }
+
+  p {
+    @apply text-lg leading-relaxed text-text-secondary;
+  }
+
+  a {
+    @apply text-accent-purple hover:text-accent-purple-hover transition-colors;
+  }
+}
+
+@layer components {
+  /* Section container */
+  .section {
+    @apply py-section;
+  }
+
+  /* Container with max width */
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-6;
+  }
+
+  /* Case study card */
+  .card {
+    @apply bg-bg-surface rounded-lg border border-bg-elevated p-6;
+    @apply hover:border-accent-purple/50 transition-all duration-200;
+    @apply hover:-translate-y-1;
+  }
+
+  /* Metrics strip */
+  .metrics-strip {
+    @apply flex flex-wrap gap-8 text-sm text-text-secondary;
+  }
+
+  .metric {
+    @apply flex flex-col;
+  }
+
+  .metric-value {
+    @apply text-2xl font-semibold text-text-primary;
+  }
+
+  .metric-label {
+    @apply text-text-muted text-sm;
+  }
+
+  /* Timeline */
+  .timeline {
+    @apply relative pl-8 border-l border-bg-elevated;
+  }
+
+  .timeline-item {
+    @apply relative pb-8 last:pb-0;
+  }
+
+  .timeline-item::before {
+    content: '';
+    @apply absolute -left-[33px] top-2 w-2 h-2 rounded-full bg-accent-purple;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 bg-accent-purple text-white rounded-lg;
+    @apply hover:bg-accent-purple-hover transition-colors font-medium;
+  }
+}

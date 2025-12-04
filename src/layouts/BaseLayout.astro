@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Bree Thomas - Former CPO who ships AI. Product leadership with technical depth in LLM evaluation, prompt architecture, and agentic workflows." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Bree Thomas" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://breethomas.ai" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="fixed top-0 w-full bg-bg-primary/80 backdrop-blur-sm z-50 border-b border-bg-elevated">
+      <div class="container-narrow flex justify-between items-center py-4">
+        <a href="/" class="text-text-primary font-semibold text-lg hover:text-text-primary">Bree Thomas</a>
+        <div class="flex gap-8 text-sm">
+          <a href="/#work" class="text-text-secondary hover:text-text-primary transition-colors">Work</a>
+          <a href="/about" class="text-text-secondary hover:text-text-primary transition-colors">About</a>
+          <a href="/contact" class="text-text-secondary hover:text-text-primary transition-colors">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <slot />
+    </main>
+
+    <footer class="border-t border-bg-elevated py-12 mt-section">
+      <div class="container-narrow flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-text-muted text-sm">&copy; {new Date().getFullYear()} Bree Thomas</p>
+        <div class="flex gap-6 text-sm">
+          <a href="mailto:breethomas33@gmail.com" class="text-text-secondary hover:text-text-primary">Email</a>
+          <a href="https://linkedin.com/in/breethomas" target="_blank" rel="noopener" class="text-text-secondary hover:text-text-primary">LinkedIn</a>
+          <a href="https://github.com/breethomas" target="_blank" rel="noopener" class="text-text-secondary hover:text-text-primary">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
