@@ -9,7 +9,7 @@ const caseStudies = [
     years: '2022 - Present',
     logo: '/images/balance-logo.png',
     problem: 'Banks assume variable means unpredictable. It doesn\'t. These workers know exactly what a Friday night shift earns.',
-    solution: 'Balance turns that knowledge into forecasts they can act on. Built conversational AI with 7-tool agentic architecture and LLM-as-judge evaluation framework.',
+    solution: 'Mapped 14 user journey scenarios before writing a line of AI code: happy paths, edge cases, adversarial inputs. Built an 800-line prompt architecture with hard constraints and context injection. The AI does things (logs earnings, creates paydays), not just talks. 7-tool agentic system with LLM-as-judge evals.',
     metrics: ['60% Retention', '81% Tipped Workers', '7-Tool Agentic System']
   },
   {
@@ -18,7 +18,7 @@ const caseStudies = [
     years: '2025',
     logo: '/images/partytrick-logo.jpg',
     problem: 'Two years of spinning. Nothing shipped. Team had lost confidence and the product had no clear path to market.',
-    solution: 'Cut 70% of the backlog. Aligned design and engineering around market-fit KPIs. Shipped the full platform in 40 days.',
+    solution: 'Cut the contractor team by half and brought in laser-focused senior engineers. Realigned the org around one pursuit: PMF. Migrated from Jira to Linear for a fresh start and killed six months of stale backlog. Skipped PRDs entirely. Prototyped in Replit to align stakeholders, define data structures with engineers, and build the first design system. Designer only touched UX gaps the prototype couldn\'t solve.',
     metrics: ['<40 Day Ship', '60% Burn Reduction', 'Market Launch']
   },
   {
@@ -27,7 +27,7 @@ const caseStudies = [
     years: '2020 - 2022',
     logo: '/images/vangst-logo.png',
     problem: 'No product function. Stalled releases. Burn too high. Product and engineering disconnected from business strategy.',
-    solution: 'Built 12-person product/engineering organization. Reset strategy with board. Shipping cadence: stalled monthly to continuous weekly.',
+    solution: 'Replaced contractors who\'d over-engineered for scale they didn\'t have. Brought in senior engineers to fix a stalled data migration. Trained a services-culture org on iterative product development. Shipping went from stalled to weekly.',
     metrics: ['$19M Series B', '40% Burn Reduction', '12-Person Team']
   },
   {
@@ -36,7 +36,7 @@ const caseStudies = [
     years: '2017 - 2019',
     logo: '/images/muve-logo.jpg',
     problem: 'EMR platform was failing with providers, feature velocity was slow, and the product team lacked clear direction.',
-    solution: 'Delivered complete platform turnaround in 90 days with 100% provider adoption and 50% faster feature velocity.',
+    solution: 'Embedded in the OR to study clinician workflow. Discovered EMRs were built for billing, not diagnosis. Built clickable iPad prototypes and ran usability tests with each clinician before writing code. Redesigned around real-time clinical signals that drive treatment decisions.',
     metrics: ['90-Day Turnaround', '100% Provider Adoption', '50% Faster Velocity']
   }
 ];
@@ -129,9 +129,9 @@ const metrics = [
       <nav class="flex items-center justify-between mb-16 lg:mb-24">
         <img src="/images/bree-balance-logo.png" alt="Bree Thomas" class="h-12 lg:h-14" />
         <div class="flex items-center gap-8 text-sm">
-          <a href="#work" class="text-text-primary hover:text-accent-purple">Work</a>
-          <a href="#about" class="text-text-primary hover:text-accent-purple">About</a>
-          <a href="#contact" class="text-accent-purple hover:text-accent-purple-hover">Get in Touch</a>
+          <a href="#work" class="text-text-primary hover:text-accent-purple">Ship</a>
+          <a href="#about" class="text-text-primary hover:text-accent-purple">Story</a>
+          <a href="#contact" class="text-accent-purple hover:text-accent-purple-hover">Connect</a>
         </div>
       </nav>
 
@@ -145,10 +145,10 @@ const metrics = [
         <!-- Text content -->
         <div class="space-y-6 max-w-lg">
           <h2 class="text-3xl lg:text-4xl font-bold text-text-primary leading-tight">
-            Products. Teams. AI.
+            Product. Teams. AI.
           </h2>
           <p class="text-lg text-text-secondary leading-relaxed">
-            Former CPO who ships fast. Now building AI.
+            I turn stalled products into shipping machines.
           </p>
           <a href="#work" class="btn-primary">
             See My Work
@@ -167,7 +167,7 @@ const metrics = [
             <div class="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 border border-gray-100">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-lg bg-accent-purple flex items-center justify-center">
-                  <span class="text-white font-bold text-sm">14+</span>
+                  <span class="text-white font-bold text-sm">17+</span>
                 </div>
                 <div>
                   <p class="text-sm font-semibold text-text-primary">Years in Product</p>
@@ -254,8 +254,15 @@ const metrics = [
   <section class="w-full bg-white section">
     <div class="container-main">
       <!-- Giant headline -->
-      <div class="mb-24 lg:mb-32">
+      <div class="mb-16 lg:mb-20">
         <h2 class="headline-giant">Share.</h2>
+      </div>
+
+      <!-- Context intro -->
+      <div class="max-w-2xl mb-16 lg:mb-20">
+        <p class="text-xl text-text-secondary leading-relaxed">
+          I build tools that solve problems I hit repeatedly. These are public because other PMs who code run into the same friction.
+        </p>
       </div>
 
       <!-- Projects grid -->
@@ -295,7 +302,13 @@ const metrics = [
               <h3 class="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-purple transition-colors">
                 {project.name}
               </h3>
-              <p class="text-text-secondary leading-relaxed">{project.description}</p>
+              <p class="text-text-secondary leading-relaxed mb-4">{project.description}</p>
+              <span class="inline-flex items-center gap-1 text-sm font-medium text-accent-purple group-hover:gap-2 transition-all">
+                View on GitHub
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </span>
             </div>
           </a>
         ))}
@@ -351,6 +364,11 @@ const metrics = [
 
         <!-- Content column -->
         <div class="lg:col-span-7">
+          <!-- Bio highlights -->
+          <p class="text-lg font-semibold text-text-primary mb-8">
+            3 Super Bowl Campaigns · Shipped Production Code · JD, Colorado Bar
+          </p>
+
           <!-- Career in thirds narrative -->
           <div class="space-y-6 text-lg text-text-secondary leading-relaxed">
             <p>My career happened in thirds.</p>
