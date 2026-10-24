@@ -5,4 +5,8 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   site: 'https://breethomas.ai',
   integrations: [tailwind(), mdx()],
+  redirects: {
+    '/about': '/#story',
+    '/contact': '/#contact',
+  },
 });

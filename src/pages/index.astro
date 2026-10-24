@@ -4,13 +4,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Case studies data with corrected titles and roles
 const caseStudies = [
   {
+    company: 'Homebot',
+    role: 'VP Product',
+    years: '2025 - Present',
+    logo: '',
+    problem: 'A home wealth platform for lenders and homeowners, in the middle of a shift: from software with AI features to AI as the product.',
+    solution: 'Leading that shift. Evals run as a continuous system: live conversations reviewed, coded and turned into evals that show where quality stands. Pricing starts from how cost varies user to user, not from the average. And the product team builds with AI every day, not just ships it.',
+    metrics: ['AI-first product org', 'Continuous evals', 'AI pricing framework']
+  },
+  {
     company: 'Balance',
     role: 'Co-Founder',
     years: '2022 - Present',
     logo: '/images/balance-logo.png',
     problem: 'Banks assume variable means unpredictable. It doesn\'t. These workers know exactly what a Friday night shift earns.',
-    solution: 'Mapped 14 user journey scenarios before writing a line of AI code: happy paths, edge cases, adversarial inputs. Built an 800-line prompt architecture with hard constraints and context injection. The AI does things (logs earnings, creates paydays), not just talks. 7-tool agentic system with LLM-as-judge evals.',
-    metrics: ['5.0 App Store Rating', '60% Retention', '7-Tool Agentic System']
+    solution: 'My hands-on lab for building AI on a real product. A conversational assistant with 12 tools, tested with an LLM judge plus deterministic checks across a 100+ case eval set, and traced in production. The one tool that changes someone\'s money data runs only after they approve the exact changes, enforced on the server.',
+    metrics: ['12-Tool Agentic Assistant', '100+ Case Eval Set', 'Server-Enforced Confirmation']
   },
   {
     company: 'Partytrick',
@@ -37,18 +46,24 @@ const caseStudies = [
     logo: '/images/muve-logo.jpg',
     problem: 'EMR platform was failing with providers, feature velocity was slow, and the product team lacked clear direction.',
     solution: 'Embedded in the OR to study clinician workflow. Discovered EMRs were built for billing, not diagnosis. Built clickable iPad prototypes and ran usability tests with each clinician before writing code. Redesigned around real-time clinical signals that drive treatment decisions.',
-    metrics: ['90-Day Turnaround', '100% Provider Adoption', '50% Faster Velocity']
+    metrics: ['90-Day Turnaround', '100% Provider Adoption']
   }
 ];
 
 // Career timeline with corrected roles
 const careerHistory = [
   {
+    period: '2025 - Present',
+    company: 'Homebot',
+    role: 'VP Product',
+    achievement: 'Leading the shift to AI as the product: continuous evals, AI pricing, and a product team that builds with AI every day.',
+    highlight: true
+  },
+  {
     period: '2022 - Present',
     company: 'Balance',
     role: 'Co-Founder',
-    achievement: 'Built AI cash-flow forecasting serving 81% tipped workers with 60% retention. Designed LLM-as-judge eval system for production AI.',
-    highlight: true
+    achievement: 'Hands-on AI lab: a 12-tool conversational assistant with LLM-judge and deterministic evals and server-enforced confirmation.'
   },
   {
     period: '2025',
@@ -72,7 +87,7 @@ const careerHistory = [
     period: '2017 - 2019',
     company: 'Muve Health',
     role: 'VP of Product',
-    achievement: 'Delivered EMR platform turnaround in 90 days with 100% provider adoption. Increased feature velocity 50%.'
+    achievement: 'Delivered EMR platform turnaround in 90 days with 100% provider adoption.'
   },
   {
     period: '2013 - 2023',
@@ -91,299 +106,125 @@ const careerHistory = [
 // Open source projects
 const openSource = [
   {
-    name: 'PM Thought Partner',
-    description: 'Claude Code plugin. Strategic sparring partner that challenges assumptions and pushes toward prototypes over documentation. Integrates Linear and GitHub via MCP.',
-    stars: 8,
-    forks: 2,
-    language: 'Shell',
-    langColor: '#89e051',
-    url: 'https://github.com/breethomas/pm-thought-partner',
-    image: '/images/women-boxing.webp'
-  },
-  {
-    name: 'PM Coding Guardrails',
-    description: 'Quality standards for PMs who code with AI. Ship responsibly. Match team patterns. Don\'t leave messes for engineers to clean up.',
-    stars: 4,
-    forks: 1,
-    language: 'Markdown',
-    langColor: '#083fa1',
-    url: 'https://github.com/breethomas/pm-coding-guardrails',
-    image: '/images/swim-code-guardrails.png'
+    name: 'Bette',
+    description: 'An open-source AI sparring partner for product decisions, built on Claude Code. Opinionated: it pushes back on your product calls, picks the right framework for the question, and stays out of your way until you ask.',
+    url: 'https://github.com/breethomas/bette',
+    image: '/images/bette.jpg'
   }
 ];
 
 // Metrics for hero
-const metrics = [
-  { value: '60%', label: 'Retention' },
-  { value: '<40', label: 'Day Ship' },
-  { value: '$19M', label: 'Series B' },
-  { value: '90', label: 'Day Turnaround' }
+const beliefs = [
+  { claim: 'AI is the product, not a feature.', line: 'The model sets what\'s possible. The product, the team and the pricing get built around it.' },
+  { claim: 'Evals are a loop.', line: 'Real conversations get reviewed and coded continuously, and new failures become new evals. They show where quality stands. Product decides what to do about it.' },
+  { claim: 'Cost before price.', line: 'AI cost swings from user to user. Price for how it varies, not for an average user who doesn\'t exist.' },
+  { claim: 'Multiplayer AI.', line: 'One person directing a pile of agents is still single-player. When a team and its agents share the same context, the coordination drops away and people get more time for the decisions they already own.' }
 ];
 ---
 
-<BaseLayout title="Bree Thomas | PM">
-  <!-- Hero Section -->
-  <section class="relative min-h-screen w-full bg-white overflow-hidden">
-    <div class="container-main pt-8 pb-16 lg:pt-12 lg:pb-24">
-      <!-- Navigation -->
-      <nav class="flex items-center justify-between mb-16 lg:mb-24">
-        <img src="/images/bree-balance-logo.png" alt="Bree Thomas" class="h-12 lg:h-14" />
-        <div class="flex items-center gap-6 text-sm">
-          <a href="#work" class="text-text-primary hover:text-accent-purple">Ship</a>
-          <a href="#about" class="text-text-primary hover:text-accent-purple">Story</a>
-          <a href="#contact" class="text-accent-purple hover:text-accent-purple-hover">Connect</a>
-          <div class="flex items-center gap-3 ml-2">
-            <a href="https://linkedin.com/in/breethomas" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent-purple" aria-label="LinkedIn">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
-            <a href="https://github.com/breethomas" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent-purple" aria-label="GitHub">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </nav>
+<BaseLayout title="Bree Thomas | Product Leader">
+  <!-- Header -->
+  <header class="w-full bg-white">
+    <div class="container-main py-6 flex items-center justify-between">
+      <a href="/" class="text-sm font-semibold tracking-[0.2em] uppercase text-text-primary">Bree Thomas</a>
+      <a href="#contact" class="text-sm text-accent-purple hover:text-accent-purple-hover">Connect</a>
+    </div>
+  </header>
 
-      <!-- Giant headline -->
-      <div class="mb-16 lg:mb-24">
-        <h1 class="headline-giant">Build.</h1>
-      </div>
-
-      <!-- Main content grid -->
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        <!-- Text content -->
-        <div class="space-y-6 max-w-lg">
-          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary leading-tight">
-            Product. Teams. AI.
-          </h2>
-          <p class="text-lg text-text-secondary leading-relaxed">
-            I turn stalled products into shipping machines.
+  <!-- Intro -->
+  <section class="w-full bg-white">
+    <div class="container-main pt-10 pb-16 lg:pt-16 lg:pb-20">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-8">
+        <img
+          src="/images/Screenshot_2025-11-20_at_5.36.13_PM.png"
+          alt="Bree Thomas"
+          class="w-28 h-28 rounded-full object-cover object-[50%_12%] flex-shrink-0 ring-1 ring-gray-200"
+        />
+        <div class="space-y-3 min-w-0">
+          <p class="text-sm text-text-muted">17+ years building product · Former CPO · Denver</p>
+          <h1 class="text-3xl lg:text-4xl font-bold text-text-primary leading-tight">Product. Teams. AI.</h1>
+          <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">
+            Product leader who ships AI to production, gets whole teams building with it, and figures out how to price it when every user costs something different.
           </p>
-          <a href="#work" class="btn-primary">
-            See My Work
-          </a>
-        </div>
-
-        <!-- Image -->
-        <div class="relative flex justify-center lg:justify-end">
-          <div class="relative">
-            <img
-              src="/images/Screenshot_2025-11-20_at_5.36.13_PM.png"
-              alt="Bree Thomas"
-              class="w-64 lg:w-80 h-auto rounded-lg object-cover shadow-xl"
-            />
-            <!-- Years badge -->
-            <div class="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 border border-gray-100">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-accent-purple flex items-center justify-center">
-                  <span class="text-white font-bold text-sm">17+</span>
-                </div>
-                <div>
-                  <p class="text-sm font-semibold text-text-primary">Years in Product</p>
-                  <p class="text-xs text-text-secondary">CPO & VP Experience</p>
-                </div>
-              </div>
-            </div>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="mailto:breethomas33@gmail.com" class="btn-primary">Email me</a>
           </div>
         </div>
       </div>
 
-      <!-- Metrics strip -->
-      <div class="mt-24 pt-12 border-t border-gray-200">
-        <div class="flex flex-wrap justify-center gap-x-16 gap-y-8">
-          {metrics.map((metric) => (
-            <div class="text-center">
-              <span class="block text-4xl lg:text-5xl font-bold text-text-primary">{metric.value}</span>
-              <span class="text-sm text-text-secondary uppercase tracking-wide mt-1 block">{metric.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="flex justify-center mt-16">
-        <a href="#work" class="flex flex-col items-center gap-2 text-text-secondary hover:text-accent-purple">
-          <span class="text-sm">Scroll to explore</span>
-          <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </a>
+      <!-- Beliefs -->
+      <div class="mt-14 grid sm:grid-cols-2 gap-px bg-gray-200 border border-gray-200 rounded-lg overflow-hidden">
+        {beliefs.map((belief) => (
+          <div class="bg-white p-6 space-y-2">
+            <p class="text-lg font-semibold text-text-primary leading-snug">{belief.claim}</p>
+            <p class="text-base text-text-secondary leading-relaxed">{belief.line}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Selected Work Section -->
+  <!-- Work -->
   <section id="work" class="w-full bg-bg-surface section">
     <div class="container-main">
-      <!-- Giant headline -->
-      <div class="mb-24 lg:mb-32">
-        <h2 class="headline-giant">Ship.</h2>
-      </div>
-
-      <!-- Case studies -->
-      <div class="container-narrow space-y-16 lg:space-y-20">
+      <h2 class="headline-giant mb-10">Ship.</h2>
+      <div class="space-y-10">
         {caseStudies.map((project) => (
-          <div class="flex gap-6 lg:gap-8">
-            <!-- Logo -->
+          <article class="flex gap-5">
             <div class="flex-shrink-0">
-              <img src={project.logo} alt={`${project.company} logo`} class="w-16 h-16 lg:w-20 lg:h-20 rounded-lg object-cover" />
+              {project.logo ? (
+                <img src={project.logo} alt={`${project.company} logo`} class="w-11 h-11 rounded-md object-cover" />
+              ) : (
+                <div class="w-11 h-11 rounded-md bg-text-primary flex items-center justify-center text-white text-lg font-bold">{project.company[0]}</div>
+              )}
             </div>
-
-            <!-- Content -->
-            <div class="flex-1 space-y-4 pt-1">
-              <!-- Company / Role / Years -->
-              <div class="flex flex-wrap items-center gap-2 text-lg">
-                <span class="font-bold text-text-primary">{project.company}</span>
-                <span class="text-text-secondary">·</span>
-                <span class="text-text-secondary">{project.role}</span>
-                <span class="text-text-secondary">·</span>
-                <span class="text-text-secondary">{project.years}</span>
-              </div>
-
-              <!-- Problem -->
-              <p class="text-lg text-text-primary leading-relaxed">{project.problem}</p>
-
-              <!-- Solution -->
-              <p class="text-lg text-text-primary leading-relaxed">{project.solution}</p>
-
-              <!-- Metrics -->
-              <div class="flex flex-wrap items-center gap-3 pt-2">
+            <div class="flex-1 min-w-0 space-y-2">
+              <p class="text-base">
+                <span class="font-semibold text-text-primary">{project.company}</span>
+                <span class="text-text-muted"> · {project.role} · {project.years}</span>
+              </p>
+              <p class="text-base text-text-primary leading-relaxed">{project.problem}</p>
+              <p class="text-base text-text-secondary leading-relaxed">{project.solution}</p>
+              <div class="flex flex-wrap gap-2 pt-1">
                 {project.metrics.map((metric) => (
-                  <span class="metric-highlight">{metric}</span>
+                  <span class="metric-highlight text-sm">{metric}</span>
                 ))}
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Open Source Section -->
+  <!-- Open Source -->
   <section class="w-full bg-white section">
     <div class="container-main">
-      <!-- Giant headline -->
-      <div class="mb-16 lg:mb-20">
-        <h2 class="headline-giant">Open Source.</h2>
-      </div>
-
-      <!-- Context intro -->
-      <div class="max-w-2xl mb-16 lg:mb-20">
-        <p class="text-xl text-text-secondary leading-relaxed">
-          I build tools that solve problems I hit repeatedly. These are public because other PMs who code run into the same friction.
-        </p>
-      </div>
-
-      <!-- Projects grid -->
-      <div class="grid md:grid-cols-2 gap-6 max-w-6xl">
-        {openSource.map((project) => (
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group block bg-bg-surface rounded-lg overflow-hidden border border-gray-200 hover:border-accent-purple hover:shadow-lg transition-all"
-          >
-            {project.image && (
-              <div class="relative aspect-[16/9] overflow-hidden">
-                <img src={project.image} alt={project.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-            )}
-            <div class="p-8">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-10 h-10 rounded-lg bg-text-primary flex items-center justify-center">
-                  <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </div>
-                <span class="flex items-center gap-1 text-sm text-text-secondary">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-                  </svg>
-                  {project.stars}
-                </span>
-                <span class="flex items-center gap-1 text-sm text-text-secondary">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
-                  </svg>
-                  {project.forks}
-                </span>
-              </div>
-              <h3 class="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-purple transition-colors">
-                {project.name}
-              </h3>
-              <p class="text-text-secondary leading-relaxed mb-4">{project.description}</p>
-              <span class="inline-flex items-center gap-1 text-sm font-medium text-accent-purple group-hover:gap-2 transition-all">
-                View on GitHub
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <!-- GitHub CTA -->
-      <div class="mt-12">
-        <a href="https://github.com/breethomas" target="_blank" rel="noopener noreferrer" class="btn-outline">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-          View All Projects
+      <h2 class="headline-giant mb-10">Open source.</h2>
+      {openSource.map((project) => (
+        <a href={project.url} target="_blank" rel="noopener noreferrer"
+           class="group flex flex-col sm:flex-row gap-6 items-start bg-bg-surface rounded-lg border border-gray-200 hover:border-accent-purple p-5 transition-colors">
+          {project.image && (
+            <img src={project.image} alt={project.name} class="w-full sm:w-48 aspect-[16/9] sm:aspect-square object-cover rounded-md flex-shrink-0" />
+          )}
+          <div class="min-w-0 space-y-2">
+            <h3 class="text-lg font-semibold text-text-primary group-hover:text-accent-purple transition-colors">{project.name}</h3>
+            <p class="text-base text-text-secondary leading-relaxed">{project.description}</p>
+            <span class="inline-block text-sm font-medium text-accent-purple">View on GitHub →</span>
+          </div>
         </a>
-      </div>
+      ))}
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="w-full bg-bg-surface section">
+  <!-- Story -->
+  <section id="story" class="w-full bg-bg-surface section">
     <div class="container-main">
-      <!-- Giant headline -->
-      <div class="mb-16 lg:mb-24">
-        <h2 class="headline-giant">Story.</h2>
-      </div>
-
-      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
-        <!-- Image column -->
-        <div class="lg:col-span-5">
-          <div class="sticky top-24">
-            <div class="relative">
-              <img src="/images/Screenshot_2025-11-20_at_5.36.13_PM.png" alt="Bree Thomas" class="w-full max-w-md rounded-lg shadow-xl" />
-              <!-- Education card overlay -->
-              <div class="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-lg p-6 border border-gray-100 max-w-xs">
-                <h4 class="text-sm font-semibold text-accent-purple uppercase tracking-wide mb-4">Education</h4>
-                <ul class="space-y-3 text-sm text-text-primary">
-                  <li class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow mt-1.5 flex-shrink-0"></span>
-                    <span>JD, University of Denver</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow mt-1.5 flex-shrink-0"></span>
-                    <span>BFA, University of New Mexico</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow mt-1.5 flex-shrink-0"></span>
-                    <span>Full-Stack Engineering, Turing School</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content column -->
-        <div class="lg:col-span-7">
-          <!-- Bio highlights -->
-          <p class="text-lg font-semibold text-text-primary mb-8">
-            3 Super Bowl Campaigns · Shipped Production Code · JD, Colorado Bar
-          </p>
-
-          <!-- Career in thirds narrative -->
-          <div class="space-y-6 text-lg text-text-secondary leading-relaxed">
-            <p>My career happened in thirds.</p>
+      <h2 class="headline-giant mb-10">Story.</h2>
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-text-primary mb-6">3 Super Bowl Campaigns · Shipped Production Code · JD, Colorado Bar</p>
+        <div class="space-y-5 text-base text-text-secondary leading-relaxed">
+          <p>My career happened in thirds.</p>
             <p>
               First, marketing. DTC brands like Oakley, North Face, and Beats by Dre.
               Three Super Bowl campaigns with Audi. These weren't just advertising. We had engineering teams
@@ -398,7 +239,7 @@ const metrics = [
               before it became the discipline it is today.
             </p>
             <p>
-              I'm the one you call when turnarounds need to happen and shit needs to get done. Startups, Fortune 500s,
+              I'm the one you call when a product is stalled and needs to ship. Startups, Fortune 500s,
               stalled products, scaling teams. I've done it across verticals.
             </p>
             <p>
@@ -414,112 +255,90 @@ const metrics = [
               Colorado bar. That breadth made me dangerous: creative thinking, critical thinking, logical reasoning.
             </p>
             <p>I don't write memos nobody reads. I build. I ship. I iterate.</p>
-          </div>
-
-          <!-- Why AI -->
-          <div class="mt-12 py-8 px-8 bg-white rounded-lg border border-gray-200">
-            <p class="text-2xl lg:text-3xl font-medium text-text-primary leading-snug italic">
-              "For years, the design-eng-product dynamic got predictable. AI made it weird again. I'm here for it."
+            <p>
+              Today I lead product at Homebot, helping the company make AI the product. What I care about most right
+              now is multiplayer AI: human-agent teams working from shared context, so everyone stays in the loop
+              without the busywork and spends more time on the decisions they already own.
             </p>
-          </div>
+        </div>
+        <blockquote class="mt-10 border-l-4 border-accent-purple pl-5 text-xl font-medium italic text-text-primary leading-snug">
+          "For years, the design-eng-product dynamic got predictable. AI made it weird again. I'm here for it."
+        </blockquote>
+      </div>
+    </div>
+  </section>
 
-          <!-- Continued Learning -->
-          <div class="mt-16 pt-12 border-t border-gray-200">
-            <h3 class="text-2xl font-bold text-text-primary mb-8">Continued Learning</h3>
-            <div class="space-y-8">
-              <div>
-                <div class="mb-2">
-                  <span class="text-lg font-semibold text-text-primary">Prototype to Production</span>
-                  <span class="text-lg text-text-secondary"> · Aman Khan, 2025</span>
-                </div>
-                <p class="text-base text-text-secondary">Agentic prototypes (RAG, tool calling), evaluation frameworks</p>
-              </div>
-              <div>
-                <div class="mb-2">
-                  <span class="text-lg font-semibold text-text-primary">AI Evals for Engineers & PMs</span>
-                  <span class="text-lg text-text-secondary"> · Parlance Labs, 2025</span>
-                </div>
-                <p class="text-base text-text-secondary">LLM evaluation pipelines, LLM-as-judge, CI/CD integration</p>
-              </div>
-            </div>
-          </div>
+  <!-- Talks -->
+  <section id="talks" class="w-full bg-white section">
+    <div class="container-main">
+      <h2 class="headline-giant mb-10">Talks.</h2>
+      <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-6">
+              <li>
+                <p class="text-base text-text-primary font-medium">Multiplayer: How AI Native Teams Are Building Today<span class="text-text-muted font-normal"> · Colorado Startup Week, 2026</span></p>
+                <p class="text-sm text-text-secondary mt-1">A paired session with John Cutler: two takes on moving teams from single-player to multiplayer AI.</p>
+              </li>
+              <li>
+                <p class="text-base text-text-primary font-medium">The Chatbot Journey<span class="text-text-muted font-normal"> · Private-equity CPO roundtable, 2026</span></p>
+                <p class="text-sm text-text-secondary mt-1">Observability, evals and the cost of production AI. Co-presented with my engineering co-lead.</p>
+              </li>
+              <li>
+                <p class="text-base text-text-primary font-medium">Shared Context and Building with AI<span class="text-text-muted font-normal"> · Software Leadership Circles Live, 2026</span></p>
+                <p class="text-sm text-text-secondary mt-1">Opening talk for senior product and engineering leaders.</p>
+              </li>
+              <li>
+                <p class="text-base text-text-primary font-medium">AI Costs Keep Changing, but Your Team Still Has to Ship<span class="text-text-muted font-normal"> · AI &amp; Product Colorado panel, Oct 28, 2026</span></p>
+                <p class="text-sm text-text-secondary mt-1">Panelist on budgeting, monitoring and pricing AI.</p>
+              </li>
+          </ul>
+
+      <div class="mt-14 pt-10 border-t border-gray-200 grid sm:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-text-muted mb-4">Continued learning</h3>
+          <ul class="space-y-4">
+              <li>
+                <p class="text-base text-text-primary font-medium">Prototype to Production<span class="text-text-muted font-normal"> · Aman Khan, 2025</span></p>
+                <p class="text-sm text-text-secondary mt-1">Agentic prototypes (RAG, tool calling), evaluation frameworks</p>
+              </li>
+              <li>
+                <p class="text-base text-text-primary font-medium">AI Evals for Engineers & PMs<span class="text-text-muted font-normal"> · Parlance Labs, 2025</span></p>
+                <p class="text-sm text-text-secondary mt-1">LLM evaluation pipelines, LLM-as-judge, CI/CD integration</p>
+              </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-text-muted mb-4">Education</h3>
+          <ul class="space-y-2 text-base text-text-primary">
+            <li>JD, University of Denver</li>
+            <li>BFA, University of New Mexico</li>
+            <li>Full-Stack Engineering, Turing School</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Connect Section -->
+  <!-- Connect -->
   <footer id="contact" class="w-full bg-bg-surface section">
     <div class="container-main">
-      <!-- Giant headline -->
-      <div class="mb-16 lg:mb-24">
-        <h2 class="headline-giant">Connect.</h2>
+      <h2 class="headline-giant mb-8">Connect.</h2>
+      <div class="space-y-1 text-lg text-text-secondary mb-8">
+        <p>Building something?</p>
+        <p>Stuck on something?</p>
+        <p>I like those conversations.</p>
       </div>
-
-      <div class="max-w-2xl">
-        <div class="text-xl text-text-secondary mb-12 space-y-1">
-          <p>Building something?</p>
-          <p>Stuck on something?</p>
-          <p>I like those conversations.</p>
-        </div>
-
-        <!-- Primary CTA -->
-        <a href="mailto:breethomas33@gmail.com" class="btn-primary text-lg mb-12 inline-flex">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
-          breethomas33@gmail.com
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="mailto:breethomas33@gmail.com" class="btn-primary">Email me</a>
+        <a href="https://linkedin.com/in/breethomas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+           class="flex items-center justify-center w-11 h-11 rounded-lg border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
-
-        <!-- Social links and resume -->
-        <div class="flex items-center gap-4 mb-8">
-          <a
-            href="https://linkedin.com/in/breethomas"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center w-12 h-12 rounded-lg bg-white border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple transition-colors"
-            aria-label="LinkedIn"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-          <a
-            href="https://github.com/breethomas"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center w-12 h-12 rounded-lg bg-white border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple transition-colors"
-            aria-label="GitHub"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          <a
-            href="/resume.pdf"
-            download
-            class="flex items-center justify-center gap-2 h-12 px-4 rounded-lg bg-white border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple transition-colors text-sm font-medium"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            Resume
-          </a>
-        </div>
-
-        <!-- Location -->
-        <div class="flex items-center gap-2 text-text-secondary">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-          </svg>
-          <span>Denver, CO</span>
-        </div>
+        <a href="https://github.com/breethomas" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+           class="flex items-center justify-center w-11 h-11 rounded-lg border border-gray-200 text-text-secondary hover:border-accent-purple hover:text-accent-purple">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
       </div>
-
-      <!-- Footer bottom -->
-      <div class="mt-24 pt-8 border-t border-gray-200 text-sm text-text-secondary">
-        <span>&copy; {new Date().getFullYear()} Bree Thomas</span>
+      <div class="mt-16 pt-6 border-t border-gray-200 text-sm text-text-muted">
+        &copy; {new Date().getFullYear()} Bree Thomas
       </div>
     </div>
   </footer>

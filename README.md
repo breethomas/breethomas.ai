@@ -34,8 +34,6 @@ src/
 │   └── BaseLayout.astro  # Main layout with nav/footer
 ├── pages/
 │   ├── index.astro       # Home page
-│   ├── about.astro       # About page
-│   ├── contact.astro     # Contact page
 │   └── work/
 │       ├── index.astro   # Case study list
 │       └── [slug].astro  # Individual case study

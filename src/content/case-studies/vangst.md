@@ -9,7 +9,7 @@ order: 3
 
 ## The Problem
 
-Vangst was a cannabis industry staffing marketplace with ambitions to become the industry's talent platform. But they had no formal product function—decisions were made ad-hoc, releases were unpredictable, and the platform struggled to scale. They needed to build a product organization that could support Series B growth.
+Vangst was a workforce and recruiting marketplace in a regulated industry, with ambitions to become the industry's talent platform. But they had no formal product function—decisions were made ad-hoc, releases were unpredictable, and the platform struggled to scale. They needed to build a product organization that could support Series B growth.
 
 ## The Approach
 
@@ -51,7 +51,7 @@ When I arrived, shipping was monthly at best—and often slipped. I introduced:
 - **Transformed shipping cadence** from monthly to continuous weekly releases
 - **Reduced burn 40%** while improving velocity
 - **Positioned for $19M Series B** raise
-- **Platform served 1,200+ cannabis businesses**
+- **Platform served 1,200+ businesses**
 
 ## What I Learned
 
