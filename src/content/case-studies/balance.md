@@ -19,7 +19,7 @@ Conversational AI that works with what users already know. Not rigid budget cate
 ## The AI Work
 
 **A 12-tool agentic assistant**
-Eleven tools read, calculate and present. One changes a user's money data, and it runs only after the user taps a confirmation card, and only the exact changes that card showed. That rule is enforced on the server, not in the prompt.
+Eleven tools look things up, calculate or show choices. One edits a user's financial records (earnings, paydays, gigs), and it runs only after the user taps a confirmation card, and only the exact changes that card showed. That rule is enforced on the server, not in the prompt.
 
 **Evals**
 An LLM judge scores each case pass or fail against its own rubric, alongside deterministic checks: which tools were called or refused, and what a change includes or leaves out. More than 100 cases. Prompt changes get run against the set before they ship.
@@ -33,7 +33,7 @@ Every AI call is traced in PostHog.
 
 **Eval-driven development.** Most AI products ship and pray. Here, changes go through the eval set first.
 
-**Display vs do.** The assistant can show anything. It can only act on someone's money with their explicit approval.
+**Display vs do.** The assistant can show anything. It can only change someone's financial records with their explicit approval.
 
 ## What It Is
 
